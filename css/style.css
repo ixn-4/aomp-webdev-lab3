@@ -1,0 +1,783 @@
+/* ==========================================================================
+   DESIGN TOKENS & COLOR PALETTE
+   ========================================================================== */
+:root {
+  --primary-bg: #ffffff;
+  --panel-bg: rgba(255, 255, 255, 0.95);
+  --accent-navy: #002855;
+  --accent-yellow: #FFC72C;
+  --card-bg: #F9F6EF;
+  --faq-bg: #FBF9F3;
+  --text-primary: #002855;
+  --text-secondary: #64748B;
+  --text-white: #ffffff;
+  
+  --font-main: 'Inter', sans-serif;
+  --font-serif: 'Inria Serif', serif;
+  --font-cursive: 'Caveat Brush', cursive;
+}
+
+/* ==========================================================================
+   CSS RESET & BASE TYPOGRAPHY
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   SHARED BACKGROUND LOGIC 
+   ========================================================================== */
+#home, #about, #menu, #faqs, #explore-menu {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#home::before, 
+#about::before, 
+#faqs::before,
+#explore-menu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Specific Section Background Images */
+#home::before  { background-image: url('../images/landing_image.svg'); opacity: 1; }
+#about::before { background-image: url('../images/resto_pic_2.svg'); opacity: 0.4; }
+#explore-menu::before { background-image: url('../images/explore.svg'); }
+#faqs::before { 
+  background-image: url('../images/faqs_bg.svg'); 
+  background-position: bottom center; 
+  background-size: 100% auto; 
+  opacity: 1; 
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION 
+   ========================================================================== */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  background: var(--panel-bg);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+}
+
+.main-header .logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Pushes the navigation links to the right side of the flex container */
+.navbar {
+  margin-left: auto; 
+  margin-right: 3rem; 
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--accent-navy);
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-yellow);
+}
+
+.desktop-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.desktop-search:hover {
+  transform: scale(1.1);
+}
+
+.search-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Fallback button styling (used in mobile menu) */
+.login-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background: var(--accent-yellow);
+  color: var(--accent-navy);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* Hamburger Icon styling (hidden on desktop) */
+.nav-toggle,
+.mobile-login,
+.hamburger-icon {
+  display: none;
+}
+
+.hamburger-icon {
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 101;
+}
+
+.hamburger-icon span {
+  width: 28px;
+  height: 3px;
+  background-color: var(--accent-navy);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ==========================================================================
+   1. HOME SECTION
+   ========================================================================== */
+#home.home-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 6rem 3rem 6rem 5%; 
+  min-height: calc(100vh - 90px);
+}
+
+.home-content-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+
+  margin-top: -5rem;
+}
+
+.hero-logo {
+  max-width: 550px;
+  width: 100%;
+}
+
+.cta-btn {
+  background: var(--accent-yellow);
+  color: var(--accent-navy);
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem 3.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, filter 0.2s ease;
+
+  margin-left: 2rem;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+}
+
+/* ==========================================================================
+   2. SPECIALS / BEST SELLERS SECTION
+   ========================================================================== */
+.specials-section {
+  padding: 5rem 4rem;
+  background: #ffffff;
+}
+
+.section-header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.specials-main-title {
+  font-family: var(--font-cursive);
+  font-size: 5rem;
+  color: var(--accent-navy);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-main);
+  font-size: 2.5rem;
+  color: var(--accent-navy);
+  text-transform: uppercase;
+}
+
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.special-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease;
+
+  border: 3px solid transparent; 
+  transition: transform 0.25s ease, border-color 0.2s ease;
+}
+
+.special-card:hover {
+  transform: translateY(-5px);
+}
+
+.special-card.active-border {
+  border-color: var(--accent-yellow);
+}
+.card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.card-content h3 {
+  font-size: 1.6rem;
+  color: var(--accent-navy);
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.price-btn {
+  background: var(--accent-yellow);
+  color: var(--accent-navy);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  width: max-content;
+}
+
+/* ==========================================================================
+   3. ABOUT SECTION
+   ========================================================================== */
+.about-section {
+  padding: 6rem 4rem;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.about-text-wrapper {
+  flex: 1;
+  max-width: 650px;
+}
+
+.cursive-title {
+  font-family: var(--font-cursive);
+  font-size: 5.5rem;
+  font-weight: 400;
+  color: var(--accent-navy);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.about-desc {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent-navy);
+  margin-bottom: 2.5rem;
+}
+
+.about-image-wrapper {
+  flex: 1;
+}
+
+.about-img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ==========================================================================
+   4. EXPLORE MENU SECTION
+   ========================================================================== */
+.explore-menu-section {
+  padding: 6rem 4rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.explore-header {
+  margin-bottom: 4rem;
+}
+
+.explore-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.explore-desc {
+  font-family: var(--font-main);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--accent-navy);
+}
+
+.menu-categories-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; 
+  gap: 2rem; 
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-category {
+  background: var(--card-bg); 
+  border-radius: 16px; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+
+  border: 3px solid transparent; 
+  transition: transform 0.2s ease, border-color 0.2s ease;
+
+  flex: 1;
+  padding: 3rem 1.5rem; 
+}
+
+.menu-category:hover {
+  transform: translateY(-5px); 
+}
+
+.menu-category.active-border {
+  border-color: var(--accent-yellow);
+}
+
+.category-icon-wrapper {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.category-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.category-name {
+  font-family: var(--font-cursive);
+  font-size: 2.8rem;
+  color: var(--accent-navy);
+  font-weight: 400;
+}
+
+.category-divider {
+  width: 2px;
+  height: 120px;
+  background-color: rgba(100, 116, 139, 0.15); 
+}
+
+/* ==========================================================================
+   5. FAQS SECTION
+   ========================================================================== */
+.faqs-section {
+  padding: 6rem 4rem 12rem 4rem; 
+}
+
+.faqs-container {
+  display: flex;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.faqs-left {
+  flex: 1;
+  text-align: center;
+}
+
+.title-stacked {
+  line-height: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.faqs-subtitle {
+  font-family: var(--font-main);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-navy);
+  margin-bottom: 0.5rem;
+}
+
+.faqs-desc {
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.faqs-right {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.faq-item {
+  background: var(--faq-bg);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.faq-item:hover {
+  transform: scale(1.02);
+}
+
+.faq-item h4 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #000;
+}
+
+/* ==========================================================================
+   6. FOOTER SECTION
+   ========================================================================== */
+.main-footer {
+  background-image: url('../images/footer_design.svg'); 
+  background-size: 100% auto;
+  background-position: top center; 
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 10; 
+  margin-top: -12vw; 
+  height: 28vw; 
+  min-height: 0; 
+  display: block; 
+}
+
+.footer-links-overlay {
+  /* Absolute positioning locks text relative to the fluid background wave */
+  position: absolute;
+  top: 13vw;   
+  right: 10vw; 
+  text-align: left;
+  color: var(--text-white);
+  padding: 0; 
+}
+
+.footer-heading {
+  font-size: 1.5vw;
+  font-weight: 400;
+  margin-bottom: 1.5vw;
+  letter-spacing: 0.5px;
+}
+
+.links-grid {
+  display: flex;
+  gap: 3vw;
+}
+
+.links-grid ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vw;
+}
+
+.links-grid a {
+  color: var(--text-white);
+  text-decoration: none;
+  font-size: 1;
+  font-weight: 400;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.links-grid a:hover {
+  opacity: 1;
+  color: var(--accent-yellow);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN / MEDIA QUERIES
+   ========================================================================== */
+
+/* Tablet & Smaller Desktop Adjustments */
+@media (max-width: 1100px) {
+  .specials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-categories-container {
+    flex-wrap: wrap; 
+  }
+  
+  .menu-category {
+    flex: 1 1 calc(50% - 2rem); 
+    padding: 2rem 1rem;
+  }
+
+  .category-name {
+    font-size: 2.2rem;
+  }
+
+  .category-icon-wrapper {
+    width: 140px; 
+    height: 140px;
+  }
+
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .about-text-wrapper {
+    max-width: 100%;
+  }
+
+  .faqs-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-footer {
+    justify-content: center;
+    padding: 2rem;
+  }
+}
+
+/* Mobile Screen Adjustments */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .main-header .logo img {
+    height: 45px;
+  }
+
+  .desktop-search {
+    display: none;
+  }
+
+  .hamburger-icon {
+    display: flex;
+  }
+
+  /* Mobile Dropdown Menu Configuration */
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--panel-bg);
+    border-bottom: 2px solid var(--accent-yellow);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 2rem 0;
+  }
+
+  .mobile-login {
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  /* Hamburger Toggle Animations */
+  .nav-toggle:checked ~ .navbar {
+    max-height: 450px;
+  }
+
+  .nav-toggle:checked ~ .hamburger-icon span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-toggle:checked ~ .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle:checked ~ .hamburger-icon span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  #home.home-section {
+    justify-content: center;
+    padding-left: 3rem;
+  }
+
+  .home-content-left {
+    width: 80%; 
+    max-width: 350px; 
+    margin-left: -3%; 
+    height: auto;
+  }
+  
+  .hero-logo {
+    max-width: 320px;
+  }
+
+  .cta-btn {
+    font-size: clamp(1rem, 4vw, 1.2rem); 
+    padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1.5rem, 6vw, 2.5rem);
+    margin-left: 0;
+  }
+
+  .specials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .specials-main-title {
+    font-size: 3.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .cursive-title {
+    font-size: 3.5rem;
+  }
+  
+  .about-desc {
+    font-size: 1.2rem;
+  }
+
+  .faqs-section, .about-section, .specials-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  /* Reset Footer Overlap for Mobile */
+  .main-footer {
+    padding-top: 8rem; 
+  }
+  
+  .links-grid {
+    gap: 1.5rem;
+  }
+
+  .explore-menu-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .menu-categories-container {
+    flex-direction: column; 
+    gap: 1.5rem;
+  }
+
+  .category-divider {
+    display: none; 
+  }
+}

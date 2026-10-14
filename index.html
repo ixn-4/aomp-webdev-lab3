@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shorego - Basta sa SHOREGO, SHORE KA!</title>
+  
+  <!-- Home Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Google Fonts: Inter (Body), Inria Serif (Headings), Caveat Brush (Display) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inria+Serif:wght@400;700&family=Caveat+Brush&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ==========================================
+       MAIN NAVIGATION HEADER 
+       ========================================== -->
+  <header class="main-header">
+    <div class="logo">
+      <img src="images/shorego_logo.svg" alt="Shorego Official Logo">
+    </div>
+
+    <!-- Hidden Checkbox for CSS-Only Mobile Menu Toggle -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger-icon" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <!-- Navigation Links -->
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li class="mobile-login"><a href="order.html">Order Now</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Desktop Search Icon -->
+    <a href="#search" class="desktop-search">
+      <img src="images/search_icon.svg" alt="Search" class="search-icon">
+    </a>
+  </header>
+
+  <main>
+    <!-- ==========================================
+         1. HOME SECTION 
+         ========================================== -->
+    <section id="home" class="home-section">
+      <div class="home-content-left">
+        <img src="images/shorego_logo.svg" alt="SHOREGO! Basta sa SHOREGO, SHORE KA!" class="hero-logo">
+        <a href="menu.html" class="cta-btn">ORDER NOW</a>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         2. SPECIALS / BEST SELLERS SECTION 
+         ========================================== -->
+    <section id="specials" class="specials-section">
+      <div class="section-header-center">
+        <h2 class="specials-main-title">SHOREGO SPECIALS</h2>
+        <h3 class="section-title">BEST SELLERS</h3>
+      </div>
+
+      <!-- CSS Grid for 4-Column Layout -->
+      <div class="specials-grid">
+        <div class="special-card">
+          <img src="images/crab_marites.svg" alt="Crab Marites" class="card-img">
+          <div class="card-content">
+            <h3>CRAB MARITES</h3>
+            <p>Smothered in garlic and simmered white wine</p>
+            <div class="price-btn">Price: ₱ 2,580.00</div>
+          </div>
+        </div>
+
+        <div class="special-card">
+          <img src="images/crispy_pata.svg" alt="Crispy Pata" class="card-img">
+          <div class="card-content">
+            <h3>CRISPY PATA</h3>
+            <p>Crispy Pata served with Homemade Sinamak and Pata Sauce</p>
+            <div class="price-btn">Price: ₱ 1,090.00</div>
+          </div>
+        </div>
+
+        <div class="special-card">
+          <img src="images/crispy_calamares.svg" alt="Crispy Calamares" class="card-img">
+          <div class="card-content">
+            <h3>CRISPY CALAMARES</h3>
+            <p>Classic Crispy Fried Calamares served with Traditional Garlic</p>
+            <div class="price-btn">Price: ₱ 360.00</div>
+          </div>
+        </div>
+
+        <div class="special-card">
+          <img src="images/sagot_gulaman.svg" alt="Sago't Gulaman" class="card-img">
+          <div class="card-content">
+            <h3>SAGO’T GULAMAN</h3>
+            <p>A classic Filipino refresher with brown sugar syrup, chewy sago, and grass jelly over crushed ice.</p>
+            <div class="price-btn">Price: ₱ 130.00</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. ABOUT US SECTION 
+         ========================================== -->
+    <section id="about" class="about-section">
+      <div class="about-content">
+        <div class="about-text-wrapper">
+          <h2 class="cursive-title">OUR RESTAURANT</h2>
+          <p class="about-desc">
+            Dive into delicious flavors at SHOREGO! Enjoy fresh seafood, Filipino favorites, tasty appetizers, and refreshing tropical drinks in a fun, beach-inspired atmosphere. Seafood lover or not, there’s always something to satisfy your cravings. Basta sa SHOREGO, SHORE KA!
+          </p>
+        </div>
+        <div class="about-image-wrapper">
+           <img src="images/resto_pic_1.svg" alt="Shorego Restaurant View" class="about-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. EXPLORE MENU SECTION 
+         ========================================== -->
+    <section id="explore-menu" class="explore-menu-section">
+      <div class="explore-header">
+        <h2 class="cursive-title explore-title">Explore Our Menu</h2>
+        <p class="explore-desc">From fresh catches to tropical treats, enjoy our signature dishes.</p>
+      </div>
+
+      <div class="menu-categories-container">
+        <!-- Category Links to menu.html anchors -->
+        <a href="menu.html#main" class="menu-category">
+          <div class="category-icon-wrapper">
+            <img src="images/main_dish.svg" alt="Seafood Icon" class="category-icon">
+          </div>
+          <h4 class="category-name">Main Dishes</h4>
+        </a>
+
+        <a href="menu.html#non-seafood" class="menu-category">
+          <div class="category-icon-wrapper">
+            <img src="images/non_seafood.svg" alt="Non-Seafood Icon" class="category-icon">
+          </div>
+          <h4 class="category-name">Non-Seafood</h4>
+        </a>
+
+        <a href="menu.html#appetizers" class="menu-category">
+          <div class="category-icon-wrapper">
+            <img src="images/appetizers.svg" alt="Appetizers Icon" class="category-icon">
+          </div>
+          <h4 class="category-name">Appetizers</h4>
+        </a>
+
+        <a href="menu.html#drinks" class="menu-category">
+          <div class="category-icon-wrapper">
+            <img src="images/drinks_and_desserts.svg" alt="Drinks & Desserts Icon" class="category-icon">
+          </div>
+          <h4 class="category-name">Drinks & Desserts</h4>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. FAQS SECTION 
+         ========================================== -->
+    <section id="faqs" class="faqs-section">
+      <div class="faqs-container">
+        <div class="faqs-left">
+          <h2 class="cursive-title title-stacked">FREQUENTLY<br>ASKED<br>QUESTIONS</h2>
+          <h3 class="faqs-subtitle">Got questions? We've got answers!</h3>
+          <p class="faqs-desc">Everything you need to know before your SHOREGO! meal.</p>
+        </div>        
+        <div class="faqs-right">
+          <div class="faq-item">
+            <h3>How do I place an order for delivery?</h3>
+          </div>
+          <div class="faq-item">
+            <h3>Do you accept table reservations?</h3>
+          </div>
+          <div class="faq-item">
+            <h3>What are your operating hours?</h3>
+          </div>
+          <div class="faq-item">
+            <h3>How can I get in touch with customer service?</h3>
+          </div>
+          <div class="faq-item">
+            <h3>What payment methods do you accept?</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       6. FOOTER SECTION 
+       ========================================== -->
+  <footer id="contact" class="main-footer">
+    <div class="footer-links-overlay">
+      <h4 class="footer-heading">NAVIGATION SHORTCUTS</h4>
+      <div class="links-grid">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+        <ul>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#faqs">FAQS</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
