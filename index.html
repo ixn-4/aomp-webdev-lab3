@@ -5,11 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shorego - Basta sa SHOREGO, SHORE KA!</title>
   
-  <!-- Home Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-  
-  <!-- Google Fonts: Inter (Body), Inria Serif (Headings), Caveat Brush (Display) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inria+Serif:wght@400;700&family=Caveat+Brush&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Caveat+Brush&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -21,7 +18,6 @@
       <img src="images/shorego_logo.svg" alt="Shorego Official Logo">
     </div>
 
-    <!-- Hidden Checkbox for CSS-Only Mobile Menu Toggle -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <label for="nav-toggle" class="hamburger-icon" aria-label="Toggle navigation">
       <span></span>
@@ -29,32 +25,15 @@
       <span></span>
     </label>
 
-    <!-- Navigation Links -->
-<nav class="navbar">
+    <nav class="navbar">
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li>
-          <select class="nav-dropdown" onchange="navigateMenu(this)">
-            <option value="" disabled selected hidden>Menu</option>
-            <option value="menu.html">All</option>
-            <option value="menu.html#main">Main Dishes</option>
-            <option value="menu.html#non-seafood">Non-Seafoods</option>
-            <option value="menu.html#appetizers">Appetizers</option>
-            <option value="menu.html#desserts">Desserts</option>
-            <option value="menu.html#drinks">Drinks</option>
-          </select>
-        </li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#faqs">FAQs</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li class="mobile-login"><a href="order.html">Order Now</a></li>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="menu.html">MENU</a></li>
+        <li><a href="#about">ABOUT US</a></li>
+        <li><a href="#contact">CONTACT US</a></li>
+        <li><a href="#faqs">FAQS</a></li>
       </ul>
     </nav>
-    
-    <!-- Desktop Search Icon -->
-    <a href="#search" class="desktop-search">
-      <img src="images/search_icon.svg" alt="Search" class="search-icon">
-    </a>
   </header>
 
   <main>
@@ -62,56 +41,81 @@
          1. HOME SECTION 
          ========================================== -->
     <section id="home" class="home-section">
-      <div class="home-content-left">
-        <img src="images/shorego_logo.svg" alt="SHOREGO! Basta sa SHOREGO, SHORE KA!" class="hero-logo">
-        <a href="menu.html" class="cta-btn">ORDER NOW</a>
+      <div class="hero-glass-panel">
+        <div class="home-content-left">
+          <img src="images/shorego_logo.svg" alt="SHOREGO! Basta sa SHOREGO, SHORE KA!" class="hero-logo">
+          <a href="menu.html" class="cta-btn">ORDER NOW</a>
+        </div>
       </div>
     </section>
 
     <!-- ==========================================
          2. SPECIALS / BEST SELLERS SECTION 
          ========================================== -->
-    <section id="specials" class="specials-section">
-      <div class="section-header-center">
-        <h2 class="specials-main-title">SHOREGO SPECIALS</h2>
+    <section id="specials" class="page-section">
+      <div class="title-area">
+        <h2 class="main-title">SHOREGO SPECIALS</h2>
         <h3 class="section-title">BEST SELLERS</h3>
       </div>
 
-      <!-- CSS Grid for 4-Column Layout -->
-      <div class="specials-grid">
-        <div class="special-card">
-          <img src="images/crab_marites.svg" alt="Crab Marites" class="card-img">
-          <div class="card-content">
-            <h3>CRAB MARITES</h3>
-            <p>Smothered in garlic and simmered white wine</p>
-            <div class="price-btn">Price: ₱ 2,580.00</div>
-          </div>
-        </div>
+      <div class="solid-bg-area">
+        <div class="container carousel-container">
+          <div id="specials-carousel" class="carousel-track">
+            
+            <a href="menu.html#crispy-marites" class="special-card" onmouseover="setActive(this)" onmouseout="removeActive(this)">
+              <img src="images/crispy_marites.svg" alt="Crispy Marites" class="card-img">
+              <div class="card-content">
+                <h3 class="cursive-card-title">Crispy Marites</h3>
+                <p>Crack open the scrumptious shell of Marites! Smothered in garlic and simmered in wine, this crab delight will tantalize your taste buds and leave you craving more.</p>
+                <div class="price-btn">₱ 2,580.00</div>
+              </div>
+            </a>
 
-        <div class="special-card">
-          <img src="images/crispy_pata.svg" alt="Crispy Pata" class="card-img">
-          <div class="card-content">
-            <h3>CRISPY PATA</h3>
-            <p>Crispy Pata served with Homemade Sinamak and Pata Sauce</p>
-            <div class="price-btn">Price: ₱ 1,090.00</div>
-          </div>
-        </div>
+            <a href="menu.html#crispy-pata" class="special-card" onmouseover="setActive(this)" onmouseout="removeActive(this)">
+              <img src="images/crispy_pata.svg" alt="Crispy Pata" class="card-img">
+              <div class="card-content">
+                <h3 class="cursive-card-title">Crispy Pata</h3>
+                <p>Bite into the crunchy, juicy Crispy Pata! Paired with homemade sinamak and savory pata sauce, this Filipino favorite will satisfy your cravings and delight your soul.</p>
+                <div class="price-btn">₱ 1,090.00</div>
+              </div>
+            </a>
 
-        <div class="special-card">
-          <img src="images/crispy_calamares.svg" alt="Crispy Calamares" class="card-img">
-          <div class="card-content">
-            <h3>CRISPY CALAMARES</h3>
-            <p>Classic Crispy Fried Calamares served with Traditional Garlic</p>
-            <div class="price-btn">Price: ₱ 360.00</div>
-          </div>
-        </div>
+            <a href="menu.html#shrimp-pancakes" class="special-card" onmouseover="setActive(this)" onmouseout="removeActive(this)">
+              <img src="images/shrimp_pancakes.svg" alt="Shrimp Pancakes" class="card-img">
+              <div class="card-content">
+                <h3 class="cursive-card-title">Shrimp Pancakes</h3>
+                <p>Bite into the appetizing Shrimp Pancakes! Enjoy golden, crispy shrimp pancakes served with sweet chili sauce for the perfect balance of crunch and flavor.</p>
+                <div class="price-btn">₱ 450.00</div>
+              </div>
+            </a>
 
-        <div class="special-card">
-          <img src="images/sagot_gulaman.svg" alt="Sago't Gulaman" class="card-img">
-          <div class="card-content">
-            <h3>SAGO’T GULAMAN</h3>
-            <p>A classic Filipino refresher with brown sugar syrup, chewy sago, and grass jelly over crushed ice.</p>
-            <div class="price-btn">Price: ₱ 130.00</div>
+            <a href="menu.html#shrimp-bam-i" class="special-card" onmouseover="setActive(this)" onmouseout="removeActive(this)">
+              <img src="images/shrimp_bam-i.svg" alt="Shrimp Bam-I" class="card-img">
+              <div class="card-content">
+                <h3 class="cursive-card-title">Shrimp Bam-I</h3>
+                <p>Swirl with the currents of Shrimp Bam-I! Dive into a flavorful Visayan stir-fried noodle dish loaded with succulent shrimp, bringing a wave of savory goodness to every bite.</p>
+                <div class="price-btn">₱ 400.00</div>
+              </div>
+            </a>   
+
+            <a href="menu.html#coconut-coffee-jelly" class="special-card" onmouseover="setActive(this)" onmouseout="removeActive(this)">
+              <img src="images/coconut_coffee_jelly.svg" alt="Coconut Coffee Jelly" class="card-img">
+              <div class="card-content">
+                <h3 class="cursive-card-title">Coconut Coffee Jelly</h3>
+                <p>Immerse yourself in the refreshing Coconut Coffee Jelly! Enjoy the rich taste of coffee jelly and the chewy goodness of nata de coco, swimming in chilled, sweet coconut milk.</p>
+                <div class="price-btn">₱ 115.00</div>
+              </div>
+            </a>  
+          
+            <a href="menu.html#buko-pandan" class="special-card" onmouseover="setActive(this)" onmouseout="removeActive(this)">
+              <img src="images/buko_pandan.svg" alt="Buko Pandan" class="card-img">
+              <div class="card-content">
+                <h3 class="cursive-card-title">Buko Pandan</h3>
+                <p>Taste the tropical goodness of Buko Pandan! A crowd-favorite dessert featuring tender young coconut strips and fragrant pandan-flavored gelatin, blended with rich cream and sweet condensed milk for a refreshing, creamy delight.</p>
+                <div class="price-btn">₱ 200.00</div>
+              </div>
+            </a>
+
           </div>
         </div>
       </div>
@@ -120,16 +124,23 @@
     <!-- ==========================================
          3. ABOUT US SECTION 
          ========================================== -->
-    <section id="about" class="about-section">
-      <div class="about-content">
-        <div class="about-text-wrapper">
-          <h2 class="cursive-title">OUR RESTAURANT</h2>
-          <p class="about-desc">
-            Dive into delicious flavors at SHOREGO! Enjoy fresh seafood, Filipino favorites, tasty appetizers, and refreshing tropical drinks in a fun, beach-inspired atmosphere. Seafood lover or not, there’s always something to satisfy your cravings. Basta sa SHOREGO, SHORE KA!
-          </p>
-        </div>
-        <div class="about-image-wrapper">
-           <img src="images/resto_pic_1.svg" alt="Shorego Restaurant View" class="about-img">
+    <section id="about" class="page-section">
+      <div class="title-area">
+        <h2 class="main-title">SHOREGO!</h2>
+      </div>
+      
+      <div class="solid-bg-area">
+        <div class="container about-content">
+          <div class="about-text-wrapper">
+            <p class="about-desc">
+              SHOREGO! is a Filipino restaurant inspired by the beautiful islands of the Philippines. Surrounded by the sea breeze and the beauty of coastal life, it brings together a variety of delicacies best enjoyed with warm Filipino hospitality.<br><br>
+              Dive into a sea of delicious flavors at SHOREGO! Enjoy fresh seafood, Filipino favorites, tasty appetizers, and refreshing tropical drinks in a fun, beach-inspired atmosphere. Whether you're a seafood lover or simply looking for a satisfying meal, there's always something to delight your taste buds.
+            </p>
+          </div>
+          <div class="about-image-wrapper">
+            <img src="images/resto_pic_1.svg" alt="Shorego Restaurant View" class="about-img">
+            <p class="explore-desc-cursive text-center">Basta sa SHOREGO, SHORE KA!</p>
+          </div>
         </div>
       </div>
     </section>
@@ -137,75 +148,122 @@
     <!-- ==========================================
          4. EXPLORE MENU SECTION 
          ========================================== -->
-    <section id="explore-menu" class="explore-menu-section">
-      <div class="explore-header">
-        <h2 class="cursive-title explore-title">Explore Our Menu</h2>
-        <p class="explore-desc">From fresh catches to tropical treats, enjoy our signature dishes.</p>
+    <section id="explore-menu" class="page-section">
+      <div class="title-area">
+        <h2 class="main-title">EXPLORE THE MENU</h2>
       </div>
 
-      <div class="menu-categories-container">
-        <!-- Category Links to menu.html anchors -->
-        <a href="menu.html#main" class="menu-category">
-          <div class="category-icon-wrapper">
-            <img src="images/main_dish.svg" alt="Seafood Icon" class="category-icon">
-          </div>
-          <h4 class="category-name">Main Dishes</h4>
-        </a>
+      <div class="solid-bg-area">
+        <div class="container menu-categories-container">
+          <a href="menu.html#main" class="menu-category" onmouseover="setActive(this)" onmouseout="removeActive(this)">
+            <div class="category-badge">MAIN DISH</div>
+            <div class="category-icon-wrapper">
+              <img src="images/main_dish.svg" alt="Main Dish Icon" class="category-icon">
+            </div>
+            <p class="category-text">Dive into a flavorful selection of fresh seafood favorites, from grilled fish and savory crabs to comforting Filipino soups and noodles.</p>
+          </a>
 
-        <a href="menu.html#non-seafood" class="menu-category">
-          <div class="category-icon-wrapper">
-            <img src="images/non_seafood.svg" alt="Non-Seafood Icon" class="category-icon">
-          </div>
-          <h4 class="category-name">Non-Seafood</h4>
-        </a>
+          <a href="menu.html#non-seafood" class="menu-category" onmouseover="setActive(this)" onmouseout="removeActive(this)">
+            <div class="category-badge">NON-SEAFOODS</div>
+            <div class="category-icon-wrapper">
+              <img src="images/non_seafood.svg" alt="Non-Seafood Icon" class="category-icon">
+            </div>
+            <p class="category-text">Enjoy beloved Filipino comfort foods featuring crispy pork, tender beef, and flavorful fried chicken for a satisfying meal.</p>
+          </a>
 
-        <a href="menu.html#appetizers" class="menu-category">
-          <div class="category-icon-wrapper">
-            <img src="images/appetizers.svg" alt="Appetizers Icon" class="category-icon">
-          </div>
-          <h4 class="category-name">Appetizers</h4>
-        </a>
+          <a href="menu.html#appetizers" class="menu-category" onmouseover="setActive(this)" onmouseout="removeActive(this)">
+            <div class="category-badge">APPETIZERS</div>
+            <div class="category-icon-wrapper">
+              <img src="images/appetizers.svg" alt="Appetizers Icon" class="category-icon">
+            </div>
+            <p class="category-text">Start your meal with delicious bites, from crispy seafood and savory spring rolls to crunchy Filipino favorites perfect for sharing.</p>
+          </a>
 
-        <a href="menu.html#desserts" class="menu-category">
-          <div class="category-icon-wrapper">
-            <img src="images/desserts.svg" alt="Desserts Icon" class="category-icon">
-          </div>
-          <h4 class="category-name">Desserts</h4>
-        </a>
+          <a href="menu.html#desserts" class="menu-category" onmouseover="setActive(this)" onmouseout="removeActive(this)">
+            <div class="category-badge">DESSERTS</div>
+            <div class="category-icon-wrapper">
+              <img src="images/desserts.svg" alt="Desserts Icon" class="category-icon">
+            </div>
+            <p class="category-text">End your dining experience on a sweet note with refreshing Filipino desserts, creamy treats, and delightful combinations of tropical fruits and local flavors.</p>
+          </a>
 
-        <a href="menu.html#drinks" class="menu-category">
-          <div class="category-icon-wrapper">
-            <img src="images/drinks.svg" alt="Drinks Icon" class="category-icon">
-          </div>
-          <h4 class="category-name">Drinks</h4>
-        </a>
+          <a href="menu.html#drinks" class="menu-category" onmouseover="setActive(this)" onmouseout="removeActive(this)">
+            <div class="category-badge">DRINKS</div>
+            <div class="category-icon-wrapper">
+              <img src="images/drinks.svg" alt="Drinks Icon" class="category-icon">
+            </div>
+            <p class="category-text">Quench your thirst with refreshing fruit juices, creamy shakes, and classic Filipino beverages, perfect for enjoying the tropical seaside vibes.</p>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- ==========================================
          5. FAQS SECTION 
          ========================================== -->
-    <section id="faqs" class="faqs-section">
-      <div class="faqs-container">
-        <div class="faqs-left">
-          <h2 class="cursive-title title-stacked">FREQUENTLY<br>ASKED<br>QUESTIONS</h2>
-          <h3 class="faqs-subtitle">Got questions? We've got answers!</h3>
-          <p class="faqs-desc">Everything you need to know before your SHOREGO! meal.</p>
-        </div>        
-        <div class="faqs-right">
-          <div class="faq-item">
-            <h3>How do I place an order for delivery?</h3>
-          </div>
-          <div class="faq-item">
-            <h3>Do you accept table reservations?</h3>
-          </div>
-          <div class="faq-item">
-            <h3>What are your operating hours?</h3>
-          </div>
-          <div class="faq-item">
-            <h3>How can I get in touch with customer service?</h3>
-          </div>
-          <div class="faq-item">
-            <h3>What payment methods do you accept?</h3>
+    <section id="faqs" class="page-section">
+      <div class="title-area">
+        <h2 class="main-title">FREQUENTLY ASKED QUESTIONS</h2>
+      </div>
+      
+      <div class="solid-bg-area">
+        <div class="container faqs-container">
+          <div class="faqs-left">
+            <h3 class="faqs-subtitle">Got questions?<br>We've got answers!</h3>
+            <p class="faqs-desc">Everything you need to know before your SHOREGO! meal.</p>
+          </div>        
+          <div class="faqs-right">
+            
+            <div class="faq-item" onclick="toggleFAQ(this)">
+              <div class="faq-question">
+                <h3>How do I place an order for delivery?</h3>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>You can order directly through our website by clicking "ORDER NOW", or find us on GrabFood and Foodpanda.</p>
+              </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFAQ(this)">
+              <div class="faq-question">
+                <h3>Do you accept table reservations?</h3>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Yes! Please call our hotline at least 24 hours in advance to secure a table for your group.</p>
+              </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFAQ(this)">
+              <div class="faq-question">
+                <h3>What are your operating hours?</h3>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>We are open daily from 10:00 AM to 10:00 PM, ready to serve you fresh seaside flavors.</p>
+              </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFAQ(this)">
+              <div class="faq-question">
+                <h3>How can I get in touch with customer service?</h3>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>You can reach us via our official Facebook page or call our hotline at (02) 123-4567.</p>
+              </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFAQ(this)">
+              <div class="faq-question">
+                <h3>What payment methods do you accept?</h3>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>We accept Cash, GCash, Maya, and all major Credit and Debit cards.</p>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
@@ -216,23 +274,39 @@
        6. FOOTER SECTION 
        ========================================== -->
   <footer id="contact" class="main-footer">
-    <div class="footer-links-overlay">
-      <h4 class="footer-heading">NAVIGATION SHORTCUTS</h4>
-      <div class="links-grid">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="#about">About Us</a></li>
-        </ul>
-        <ul>
-          <li><a href="#contact">Contact Us</a></li>
-          <li><a href="#faqs">FAQS</a></li>
-        </ul>
+    <div class="container footer-columns">
+      <div class="footer-social">
+        <h4>FOLLOW US</h4>
+        <div class="social-icons">
+          <div class="social-icon"><img src="images/tiktok.svg" alt="TikTok"></div>
+          <div class="social-icon"><img src="images/fb.svg" alt="Facebook"></div>
+          <div class="social-icon"><img src="images/ig.svg" alt="Instagram"></div>
+          <div class="social-icon"><img src="images/yt.svg" alt="YouTube"></div>
+        </div>
+      </div>
+      
+      <div class="footer-logo">
+        <img src="images/shorego_logo_2.svg" alt="Shorego Logo">
+        <p>© SHOREGO! 2026 I All rights reserved.</p>
+      </div>
+      
+      <div class="footer-nav">
+        <h4>NAVIGATION</h4>
+        <div class="links-grid">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="#about">About Us</a></li>
+          </ul>
+          <ul>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#faqs">FAQS</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
-
 </body>
 </html>
