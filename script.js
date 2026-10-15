@@ -2,15 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const interactiveCards = document.querySelectorAll('.menu-category, .special-card');
   
   interactiveCards.forEach(card => {
-    // Add the yellow border when the mouse enters
-    card.addEventListener('mouseenter', () => {
+    card.onmouseover = () => {
       card.classList.add('active-border');
-    });
+    };
 
-    // Remove the yellow border when the mouse leaves
-    card.addEventListener('mouseleave', () => {
+    card.onmouseout = () => {
       card.classList.remove('active-border');
-    });
-    
+    };
   });
 });
+
+function navigateMenu(selectElement) {
+  const selectedUrl = selectElement.value;
+  if (selectedUrl) {
+    window.location.href = selectedUrl;
+    
+    selectElement.selectedIndex = 0; 
+  }
+}

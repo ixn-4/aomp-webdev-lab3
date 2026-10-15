@@ -30,10 +30,20 @@
     </label>
 
     <!-- Navigation Links -->
-    <nav class="navbar">
+<nav class="navbar">
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="menu.html">Menu</a></li>
+        <li>
+          <select class="nav-dropdown" onchange="navigateMenu(this)">
+            <option value="" disabled selected hidden>Menu</option>
+            <option value="menu.html">All</option>
+            <option value="menu.html#main">Main Dishes</option>
+            <option value="menu.html#non-seafood">Non-Seafoods</option>
+            <option value="menu.html#appetizers">Appetizers</option>
+            <option value="menu.html#desserts">Desserts</option>
+            <option value="menu.html#drinks">Drinks</option>
+          </select>
+        </li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#faqs">FAQs</a></li>
         <li><a href="#contact">Contact Us</a></li>
@@ -156,13 +166,19 @@
           <h4 class="category-name">Appetizers</h4>
         </a>
 
+        <a href="menu.html#desserts" class="menu-category">
+          <div class="category-icon-wrapper">
+            <img src="images/desserts.svg" alt="Desserts Icon" class="category-icon">
+          </div>
+          <h4 class="category-name">Desserts</h4>
+        </a>
+
         <a href="menu.html#drinks" class="menu-category">
           <div class="category-icon-wrapper">
-            <img src="images/drinks_and_desserts.svg" alt="Drinks & Desserts Icon" class="category-icon">
+            <img src="images/drinks.svg" alt="Drinks Icon" class="category-icon">
           </div>
-          <h4 class="category-name">Drinks & Desserts</h4>
+          <h4 class="category-name">Drinks</h4>
         </a>
-      </div>
     </section>
 
     <!-- ==========================================
