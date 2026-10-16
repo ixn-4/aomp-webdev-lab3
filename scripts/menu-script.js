@@ -18,14 +18,21 @@ menuButtons.forEach(button => {
   button.addEventListener('click', () => {
     
     menuButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+    button.classList.add('active'); 
 
     const targetCategory = button.getAttribute('data-category');
 
     foodSections.forEach(section => {
       if (section.classList.contains(targetCategory)) {
+        section.classList.remove('visible', 'hidden'); 
+        void section.offsetWidth; 
         section.classList.add('visible');
-        section.classList.remove('hidden');
+        
+        section.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+
       } else {
         section.classList.add('hidden');
         section.classList.remove('visible');
