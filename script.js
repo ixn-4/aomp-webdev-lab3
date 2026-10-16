@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           track.scrollBy({ left: scrollAmount, behavior: 'smooth' }); 
         }
-      }, 3000); 
+      }, 2000); 
     }
 
     function stopAutoScroll() {
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// 3. INLINE HOVER EVENT FUNCTIONS 
+// 3. HOVER EVENT FUNCTIONS 
 function setActive(cardElement) {
   cardElement.classList.add('active-border');
 }
