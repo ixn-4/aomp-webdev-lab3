@@ -21,6 +21,7 @@
     box-sizing: border-box;
 }
 
+/*Makes bg img cover entire page*/
 body, footer {
     background-size: cover;
     background-position: center;
@@ -31,6 +32,7 @@ body {
     background-image: url(../images/pattern_doodles2.svg);
 }
 
+/*Makes header stick to top*/
 #nav {
     position: sticky;
     top: 0;
@@ -71,6 +73,7 @@ body {
     color: var(--accent-yellow); 
 }
 
+/*Hamburger icon for phones*/
 #nav-toggle, 
 #hamburger-icon { 
     display: none; 
@@ -85,6 +88,7 @@ body {
     height: auto;
 }
 
+/*Top area*/
 #main h1 {
     font-family: var(--font-cursive);
     color: var(--accent-navy);
@@ -101,6 +105,7 @@ body {
     font-size: clamp(20px, 1.3vw, 30px);
 }
 
+/*Filter buttons for food types*/
 .menu-buttons {
     background: var(--accent-yellow);
     color: var(--accent-navy);
@@ -114,7 +119,8 @@ body {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.menu-buttons:not(.active):hover, #food-items img:hover { 
+/*Effects*/
+.menu-buttons:not(.active):hover, #food-items img:not(.img-section img):hover, .size-btn:hover, .drinks-card:hover { 
     transform: translateY(-2px); 
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
@@ -126,6 +132,7 @@ body {
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
+/*Makes button stick to top*/
 .sticky-btn {
     position: -webkit-sticky;
     position: sticky;
@@ -150,6 +157,7 @@ body {
     }
 }
 
+/*The food section (makes it show only one at a time)*/
 .food-item {
     display: none;
     scroll-margin-top: 200px;
@@ -182,7 +190,6 @@ body {
     width: clamp(300px, 100%, 600px);
     background-color: transparent;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin: 10px;
 }
 
 #food-items-sections {
@@ -201,6 +208,77 @@ body {
     margin: 20px 10px;
 }
 
+/*Drinks (Might have made it complicated oh well)*/
+#drinks-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.drinks-card {
+    display: flex;
+    align-items: center;
+    background-color: #f9f6ef33;
+    border-radius: 20px;
+    max-width: 600px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-family: var(--font-main);
+    box-shadow: 4px 4px 4px #00000040;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 10px;
+    padding: 10px 30px;
+}
+
+.img-section img {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 20px;
+}
+
+.content-section {
+    margin-left: 32px;
+    text-align: left;
+}
+
+.item-title {
+    color: var(--accent-navy);
+    font-family: var(--font-cursive);
+    font-size: clamp(24px, 4vw, 45px);
+    margin: 0 0 8px 0;
+}
+
+.price-display {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.size-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.size-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.size-btn.active {
+    background-color: #f1c443;
+    color: #000;
+}
+
+/*Footer elements*/
 footer {
     background-color: var(--accent-navy);
     background-image: url(../images/pattern_doodles2.svg);
@@ -291,9 +369,7 @@ footer {
     color: var(--accent-yellow);
 }
 
-@media (max-width: 860px) {
-}
-
+/*Media queries for different screen sizes*/
 @media (max-width: 768px) {
     #nav { 
         padding: 0 1.25rem; 
@@ -365,6 +441,16 @@ footer {
     .sticky-btn {
         top: 0;
         animation-range: 300px 370px; 
+    }
+
+    .drinks-card {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .content-section {
+        margin: 0;
+        text-align: center;
     }
 }
 
