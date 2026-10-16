@@ -187,7 +187,9 @@ img {
   justify-content: flex-start;
   align-items: center;
   padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 6vw, 5rem); 
-  min-height: clamp(380px, 68vh, 620px);
+  width: 100%;
+  aspect-ratio: 1715 / 833;
+  min-height: auto;
   background-image: url('../images/landing_image.svg');
   background-size: cover;
   background-position: center;
@@ -589,7 +591,6 @@ img {
 
 .social-icon:hover {
   transform: translateY(-2px);
-  background: var(--accent-yellow);
 }
 
 .social-icon img { 
@@ -641,7 +642,19 @@ img {
   }
 
   .menu-categories-container {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .menu-category {
+    grid-column: span 2; 
+  }
+
+  .menu-category:nth-child(4) {
+    grid-column: 2 / span 2; 
+  }
+
+  .menu-category:nth-child(5) {
+    grid-column: 4 / span 2; 
   }
 }
 
@@ -768,8 +781,14 @@ img {
   }
 
   .menu-categories-container {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: center;
+  }
+
+  .menu-category,
+  .menu-category:nth-child(4) {
+    grid-column: auto;
   }
 
   .menu-category:nth-child(5) {
@@ -777,35 +796,6 @@ img {
     max-width: 280px;
     margin-left: auto;
     margin-right: auto;
-  }
-}
-
-@media (max-width: 520px) {
-  .container {
-    width: 90%;
-  }
-
-  .main-title::before,
-  .main-title::after {
-    height: 22px;
-    background-size: 110px auto;
-  }
-
-  .special-card {
-    flex: 0 0 82%;
-  }
-
-  .menu-categories-container {
-    grid-template-columns: 1fr;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
-  .menu-category:nth-child(5) {
-    grid-column: auto;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
   }
 
   .faq-question {

@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           track.scrollBy({ left: scrollAmount, behavior: 'smooth' }); 
         }
-      }, 2000); 
+      }, 5000); 
     }
 
     function stopAutoScroll() {
