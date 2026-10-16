@@ -1,0 +1,381 @@
+:root {
+    --primary-bg: #FBF9F3;          
+    --accent-navy: #002855;
+    --accent-yellow: #FFC72C;
+    --card-bg: rgba(249, 246, 239, 0.78); 
+    --text-primary: #002855;
+    --text-black: #1a1a1a;
+    --text-white: #ffffff;
+    
+    --font-main: 'Inter', sans-serif;
+    --font-cursive: 'Caveat Brush', cursive;
+
+    --container-max: 1120px;
+    --section-pad-y: clamp(1.75rem, 3.5vw, 2.75rem);
+    --title-pad-top: clamp(1.75rem, 3.5vw, 2.75rem);
+    --title-pad-bottom: clamp(1rem, 2vw, 1.5rem);
+    --card-gap: clamp(1rem, 1.8vw, 1.5rem);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, footer {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body {
+    background-image: url(../images/pattern_doodles2.svg);
+}
+
+#nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: clamp(100px, 6vw, 100px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 clamp(1.25rem, 5vw, 4rem);
+    background: var(--primary-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+#nav img { 
+    height: clamp(50px, 4vw, 101px); 
+    width: auto;
+}
+
+#nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+#nav-links a {
+    text-decoration: none;
+    color: var(--accent-navy);
+    font-family: var(--font-main);
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+#nav-links a:hover { 
+    color: var(--accent-yellow); 
+}
+
+#nav-toggle, 
+#hamburger-icon { 
+    display: none; 
+}
+
+#main, #food-items {
+    text-align: center;
+}
+
+#main img { 
+    width: clamp(300px, 60vw, 1200px);
+    height: auto;
+}
+
+#main h1 {
+    font-family: var(--font-cursive);
+    color: var(--accent-navy);
+    font-size: clamp(85px, 1.3vw, 100px);
+    font-weight: 300;
+    text-shadow: 4px 6px 2px rgba(0,0,0,0.3);
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#main h2 {
+    font-family: var(--font-main);
+    color: var(--accent-navy);
+    font-size: clamp(20px, 1.3vw, 30px);
+}
+
+.menu-buttons {
+    background: var(--accent-yellow);
+    color: var(--accent-navy);
+    font-family: var(--font-main);
+    font-size: clamp(12px, 1.3vw, 24px);
+    font-weight: 800;
+    padding: clamp(0.55rem, 1vw, 0.75rem) clamp(1.5rem, 2.5vw, 2.25rem);
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-buttons:not(.active):hover, #food-items img:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.menu-buttons.active{
+    background-color: #9b8038; 
+    cursor: default;   
+    pointer-events: none;     
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.sticky-btn {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+    z-index: 100;
+    padding: 15px 0;
+    animation: addStickyBackground linear both;
+    animation-timeline: scroll();
+    animation-range: 700px 770px; 
+}
+
+@keyframes addStickyBackground {
+    from {
+        background-color: transparent;
+        box-shadow: none;
+        border-bottom: 1px solid transparent;
+    }
+    to {
+        background-color: #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid #eee;
+    }
+}
+
+.food-item {
+    display: none;
+    scroll-margin-top: 200px;
+}
+
+.food-item.main-dish {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
+.visible {
+    display: block !important;
+    animation: fadeInUp 0.4s ease-out forwards; 
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#food-items img {
+    width: clamp(300px, 100%, 600px);
+    background-color: transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 10px;
+}
+
+#food-items-sections {
+    scroll-margin-top: 80px;
+    margin: 0px 10vw;
+    background-color: #fff;
+}
+
+.food-type-id {
+    font-family: var(--font-main);
+    color: var(--accent-navy);
+    font-size: clamp(0.5rem, 4vw, 2rem);
+    font-weight: 600;
+    border: 5px solid #00285599;
+    border-radius: 5px;
+    margin: 20px 10px;
+}
+
+footer {
+    background-color: var(--accent-navy);
+    background-image: url(../images/pattern_doodles2.svg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-white);
+    padding: 1.75rem 0;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-family: var(--font-main);
+}
+
+#footer-socials,
+#footer-logo,
+#footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+#footer-socials h4, 
+#footer-nav h4 {
+    font-size:clamp(1rem, 4vw, 2rem); 
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05em;
+}
+
+#socials {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+#socials{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    cursor: pointer;
+}
+
+#socials img {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#socials img:hover {
+    transform: translateY(-2px);
+}
+
+#socials img { 
+    height: clamp(30px, 100%,60px);
+}
+
+#footer-logo img { 
+    height: clamp(100px, 20vw, 168px);
+    width: auto;
+}
+
+#footer-logo p { 
+    font-size: 0.7rem; 
+    color: var(--primary-bg); 
+    opacity: 0.9;
+    white-space: nowrap;
+}
+
+#footer-links { 
+    display: flex; 
+    gap: 1.5rem; 
+}
+
+#footer-links ul { 
+    list-style: none; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.2rem; 
+}
+
+#footer-links a { 
+    color: var(--primary-bg); 
+    text-decoration: none; 
+    font-size: 1rem; 
+    transition: color 0.2s ease;
+}
+
+#footer-links a:hover {
+    color: var(--accent-yellow);
+}
+
+@media (max-width: 860px) {
+}
+
+@media (max-width: 768px) {
+    #nav { 
+        padding: 0 1.25rem; 
+        height: 62px;
+        position: relative;
+    }
+
+    #hamburger-icon { 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center;
+        gap: 5px; 
+        cursor: pointer; 
+        padding: 0.5rem;
+        z-index: 1001;
+    }
+
+    #hamburger-icon span { 
+        width: 24px; 
+        height: 2.5px; 
+        background: var(--accent-navy); 
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease; 
+    }
+    
+    #nav nav { 
+        position: absolute;
+        top: 100%; 
+        left: 0; 
+        width: 100%;
+        background: var(--primary-bg);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        max-height: 0; 
+        overflow: hidden;
+        transition: max-height 0.35s ease-in-out;
+        z-index: 1000;
+    }
+
+    #nav-links { 
+        display: flex;
+        flex-direction: column; 
+        padding: 1.25rem 0; 
+        gap: 1.15rem; 
+    }
+
+    #nav-links a {
+        font-size: 0.95rem;
+        display: block;
+        padding: 0.25rem 1rem;
+    }
+    
+    #nav-toggle:checked ~ nav { 
+        max-height: 340px;
+        border-bottom: 3px solid var(--accent-yellow);
+    }
+
+    #nav-toggle:checked ~ #hamburger-icon span:nth-child(1) { 
+        transform: translateY(7.5px) rotate(45deg); 
+    }
+
+    #nav-toggle:checked ~ #hamburger-icon span:nth-child(2) { 
+        opacity: 0; 
+    }
+
+    #nav-toggle:checked ~ #hamburger-icon span:nth-child(3) { 
+        transform: translateY(-7.5px) rotate(-45deg); 
+    }
+
+    .sticky-btn {
+        top: 0;
+        animation-range: 300px 370px; 
+    }
+}
+
+@media (max-width: 520px) {
+    #main img {
+        display: none;
+    }
+    #food-items-sections {
+        margin: 0px;
+    }
+    #food-items img {
+        margin: 0px;
+    }
+}
