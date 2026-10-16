@@ -1,3 +1,4 @@
+// Listener for the hamburger icon
 document.addEventListener("DOMContentLoaded", () => {
     const navToggle = document.getElementById('nav-toggle');
     const navLinks = document.querySelectorAll('#nav-links a');
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// Makes the food type buttons show only the respective type
 const menuButtons = document.querySelectorAll('.menu-buttons');
 const foodSections = document.querySelectorAll('.food-item');
 
@@ -39,5 +41,24 @@ menuButtons.forEach(button => {
       }
     });
     
+  });
+});
+
+// Make the buttons inside the drinks card change the price per size
+const containers = document.querySelectorAll('.drinks-card');
+
+containers.forEach(container => {
+  const buttons = container.querySelectorAll('.size-btn');
+  const priceValue = container.querySelector('#price-value');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      button.classList.add('active');
+      
+      const newPrice = button.getAttribute('data-price');
+      priceValue.textContent = newPrice;
+    });
   });
 });
