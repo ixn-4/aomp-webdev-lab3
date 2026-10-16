@@ -138,7 +138,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: clamp(60px, 6vw, 74px);
+  height: clamp(100px, 6vw, 100px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -538,100 +538,96 @@ img {
 /* ==========================================================================
    6. FOOTER SECTION 
    ========================================================================== */
-.main-footer {
-  background-color: var(--accent-navy);
-  background-image: url('../images/footer_design.svg'); 
-  background-size: cover; 
-  background-position: center;
-  color: var(--text-white);
-  padding: 1.75rem 0;
+footer {
+    background-color: var(--accent-navy);
+    background-image: url(../images/pattern_doodles2.svg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-white);
+    padding: 1.75rem 0;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-family: var(--font-main);
 }
 
-.footer-columns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+#footer-socials,
+#footer-logo,
+#footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
 }
 
-.footer-social, 
-.footer-logo, 
-.footer-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
+#footer-socials h4, 
+#footer-nav h4 {
+    font-size:clamp(1rem, 4vw, 2rem); 
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05em;
 }
 
-.footer-social h4, 
-.footer-nav h4 {
-  font-size: 0.8rem; 
-  font-weight: 800;
-  margin-bottom: 0.4rem;
-  letter-spacing: 0.05em;
+#socials {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
 }
 
-.social-icons {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
+#socials{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    cursor: pointer;
 }
 
-.social-icon {
-  width: 30px; 
-  height: 30px;
-  background: var(--primary-bg);
-  border-radius: 6px;
-  display: flex; 
-  justify-content: center; 
-  align-items: center;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  cursor: pointer;
+#socials img {
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.social-icon:hover {
-  transform: translateY(-2px);
+#socials img:hover {
+    transform: translateY(-2px);
 }
 
-.social-icon img { 
-  width: 14px; 
-  height: auto;
+#socials img { 
+    height: clamp(30px, 100%,60px);
 }
 
-.footer-logo img { 
-  max-width: 120px; 
-  margin: 0 auto 0.2rem auto;
+#footer-logo img { 
+    height: clamp(100px, 20vw, 168px);
+    width: auto;
 }
 
-.footer-logo p { 
-  font-size: 0.7rem; 
-  color: var(--primary-bg); 
-  opacity: 0.9;
-  white-space: nowrap;
+#footer-logo p { 
+    font-size: 0.7rem; 
+    color: var(--primary-bg); 
+    opacity: 0.9;
+    white-space: nowrap;
 }
 
-.links-grid { 
-  display: flex; 
-  gap: 1.5rem; 
+#footer-links { 
+    display: flex; 
+    gap: 1.5rem; 
 }
 
-.links-grid ul { 
-  list-style: none; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 0.2rem; 
+#footer-links ul { 
+    list-style: none; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.2rem; 
 }
 
-.links-grid a { 
-  color: var(--primary-bg); 
-  text-decoration: none; 
-  font-size: 0.75rem; 
-  transition: color 0.2s ease;
+#footer-links a { 
+    color: var(--primary-bg); 
+    text-decoration: none; 
+    font-size: 1rem; 
+    transition: color 0.2s ease;
 }
 
-.links-grid a:hover {
-  color: var(--accent-yellow);
+#footer-links a:hover {
+    color: var(--accent-yellow);
 }
+
 
 /* ==========================================================================
    RESPONSIVE BREAKPOINTS

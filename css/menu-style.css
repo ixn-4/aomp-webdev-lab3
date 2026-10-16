@@ -205,7 +205,7 @@ body {
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 4px 4px 4px #00000040;
-    padding-top: 20px;
+    padding: 30px 0px
 }
 
 .food-type-id {

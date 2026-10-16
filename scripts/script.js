@@ -1,16 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. MOBILE HAMBURGER MENU AUTO-CLOSE ON LINK CLICK
-  const navToggle = document.getElementById('nav-toggle');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  if (navToggle) {
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.checked = false;
-      });
-    });
-  }
-
   // 2. CAROUSEL CLONING & ROTATION LOGIC
   const track = document.getElementById('specials-carousel');
   let autoScrollInterval;
@@ -85,3 +73,15 @@ function toggleFAQ(clickedFaq) {
 
   clickedFaq.classList.toggle('active');
 }
+
+const homepageCards = document.querySelectorAll('.menu-category, .special-card');
+
+homepageCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const category = card.getAttribute('data-category'); 
+    
+    localStorage.setItem('selectedCategory', category);
+    
+    window.location.href = 'menu.html';
+  });
+});
